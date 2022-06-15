@@ -52,7 +52,7 @@ public class DiscountRepository : IDiscountRepository
             (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
         var result = await connection.ExecuteAsync
-            ("UPDATE Coupen SET ProductName = @ProductName, Description = @ProductDescription, Amount = @Amount where Id = @Id",
+            ("UPDATE Coupon SET ProductName = @ProductName, Description = @ProductDescription, Amount = @Amount where Id = @Id",
             new { ProductName = coupon.ProductName, ProductDescription = coupon.Description, Amount = coupon.Amount, Id = coupon.Id });
 
         if(result == 0)
@@ -70,7 +70,7 @@ public class DiscountRepository : IDiscountRepository
             (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
 
         var result = await connection.ExecuteAsync
-            ("DELETE FROM Coupen WHERE ProductName = @ProductName", new { ProductName = productName });
+            ("DELETE FROM Coupon WHERE ProductName = @ProductName", new { ProductName = productName });
 
         if(result == 0)
         {
