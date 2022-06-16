@@ -24,7 +24,7 @@ public class ShoppingCart
             decimal totalPrice = 0;
             foreach (var item in Items)
             {
-                totalPrice = item.Price * item.Quantity;
+                totalPrice += item.Price * item.Quantity;
             }
             return totalPrice;
         }
